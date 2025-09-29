@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import DiagnosticList from "./components/DiagnosticList";
+import NavBar from "./components/NavBar";
+import PatientInfo from "./components/PatientInfo";
+import PatientsList from "./components/PatientsList";
+import { useAPI } from "./hooks/useApi";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { data: patient, loading, error } = useAPI();
+  const [selectedPatientIndex, setSelectedPatientIndex] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  console.log(patient);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  const handlePatientSelect = (index) => {
+    setSelectedPatientIndex(index);
+  };
+
+  // Check if patient data exists and has items
+  if (patient && patient.length > 0) {
+    return (
+      <div className="p-5 bg-[#F6F7F8] h-screen overflow-hidden flex flex-col">
+        <NavBar />
+        <main className="flex gap-5 mt-5 flex-1 overflow-hidden">
+          <PatientsList
+            patients={patient}
+            selectedIndex={selectedPatientIndex}
+            onPatientSelect={handlePatientSelect}
+          />
+          <PatientInfo info={patient[selectedPatientIndex]} />
+        </main>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
+
+  // Return this if no patient data
+  return <div>No patient data available</div>;
 }
 
-export default App
+export default App;
