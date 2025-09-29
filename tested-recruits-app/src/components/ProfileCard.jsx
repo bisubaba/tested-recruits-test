@@ -4,28 +4,28 @@ export default function ProfileCard({ info }) {
   const informations = [
     {
       title: "Date Of Birth",
-      icon: "",
+      icon: "dob.png",
       value: info.date_of_birth,
     },
     {
-      title: "Date Of Birth",
-      icon: "",
-      value: info.date_of_birth,
+      title: "Gender",
+      icon: info.gender == "Female" ? "female.png" : "male.png",
+      value: info.gender,
     },
     {
-      title: "Date Of Birth",
-      icon: "",
-      value: info.date_of_birth,
+      title: "Contact info.",
+      icon: "contact.png",
+      value: info.phone_number,
     },
     {
-      title: "Date Of Birth",
-      icon: "",
-      value: info.date_of_birth,
+      title: "Emergency Contacts",
+      icon: "contact.png",
+      value: info.emergency_contact,
     },
     {
-      title: "Date Of Birth",
-      icon: "",
-      value: info.date_of_birth,
+      title: "Insurance Provider",
+      icon: "insurance.png",
+      value: info.insurance_type,
     },
   ];
   return (
@@ -42,7 +42,7 @@ export default function ProfileCard({ info }) {
         {informations.map((information, index) => {
           return (
             <div key={index} className="flex items-center gap-3">
-              <img src={information.icon} alt="" className="w-5 h-5" />
+              <img src={information.icon} alt="" className="w-10 h-10" />
               <div>
                 <p className="body-regular-14">{information.title}</p>
                 <p className="body-emphasized-14pt">{information.value}</p>
@@ -50,6 +50,11 @@ export default function ProfileCard({ info }) {
             </div>
           );
         })}
+      </div>
+      <div className="flex justify-end mt-8">
+        <button className="w-42 h-10 bg-[#01F0D0] rounded-full opacity-100">
+          Show All Information
+        </button>
       </div>
     </div>
   );

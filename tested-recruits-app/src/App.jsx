@@ -8,9 +8,6 @@ import { useAPI } from "./hooks/useApi";
 function App() {
   const { data: patient, loading, error } = useAPI();
   const [selectedPatientIndex, setSelectedPatientIndex] = useState(0);
-
-  console.log(patient);
-
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
@@ -21,9 +18,9 @@ function App() {
   // Check if patient data exists and has items
   if (patient && patient.length > 0) {
     return (
-      <div className="p-5 bg-[#F6F7F8] h-screen overflow-hidden flex flex-col">
+      <div className="p-5 bg-[#F6F7F8] h-screen flex flex-col">
         <NavBar />
-        <main className="flex gap-5 mt-5 flex-1 overflow-hidden">
+        <main className="flex flex-col lg:flex-row gap-5 mt-5 flex-1 lg:overflow-hidden">
           <PatientsList
             patients={patient}
             selectedIndex={selectedPatientIndex}

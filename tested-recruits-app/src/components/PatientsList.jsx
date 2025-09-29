@@ -8,7 +8,7 @@ export default function PatientsList({
   onPatientSelect,
 }) {
   return (
-    <div className="bg-white py-3 rounded-xl min-w-[300px] flex flex-col h-full">
+    <div className="bg-white py-3 rounded-xl lg:min-w-[300px] flex flex-col">
       <div className="flex justify-between mb-5 px-3">
         <p className="card-title-24pt ">Patients</p>
         <img src={Search} alt="search" />
@@ -18,8 +18,10 @@ export default function PatientsList({
           return (
             <div
               className={`flex justify-between  items-center w-9/10  p-3 ${
-                index == 0 ? "active2" : ""
-              }`}
+                index == selectedIndex ? "active2" : ""
+              }`
+            }
+              onClick={() => onPatientSelect(index)}
             >
               <div className="flex space-x-2 items-center">
                 <img
