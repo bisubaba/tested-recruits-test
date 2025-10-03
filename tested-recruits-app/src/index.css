@@ -35,6 +35,9 @@
   --unnamed-line-spacing-33: 33px;
   --unnamed-text-transform-titlecase: titlecase;
 }
+body {
+  scrollbar-width: thin;
+}
 .active {
   background-color: var(--activestate_bg_1);
 }
@@ -88,27 +91,83 @@
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-072635);
 }
-.custom-scrollbar {
-  /* For Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #01f0d0 #2a2a2a;
+
+.vital-title {
+  height: 22px;
+  /* UI Properties */
+  font: var(--unnamed-font-style-normal) normal medium 16px/22px
+    var(--unnamed-font-family-manrope);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-072635);
+  text-align: left;
+  font: normal normal medium 16px/22px Manrope;
+  letter-spacing: 0px;
+  color: #072635;
+  text-transform: capitalize;
+  opacity: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 12px;
+.vital-value {
+  /* UI Properties */
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800)
+    30px/41px var(--unnamed-font-family-manrope);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-072635);
+  text-align: left;
+  font: normal normal 800 30px/41px Manrope;
+  letter-spacing: 0px;
+  color: #072635;
+  opacity: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #2a2a2a;
-  border-radius: 6px;
+.vital-levels {
+  /* UI Properties */
+  font: var(--unnamed-font-style-normal) normal
+    var(--unnamed-font-weight-normal) var(--unnamed-font-size-14) /
+    var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-072635);
+  text-align: left;
+  font: normal normal normal 14px/19px Manrope;
+  letter-spacing: 0px;
+  color: #072635;
+  opacity: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #01f0d0;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+.vitals-card-respi {
+  background: #e0f3fa 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #00d4b5;
+.vitals-card-temperature {
+  background: #ffe6e9 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.vitals-card-heart {
+  background: #ffe6f1 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.charts-container {
+  background: #f4f0fe 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+.scrollbox {
+  overflow: auto;
+  visibility: hidden;
+}
+
+.scrollbox-content {
+  visibility: visible;
+}
+
+.scrollbox:hover,
+.scrollbox:focus {
+  visibility: visible;
 }

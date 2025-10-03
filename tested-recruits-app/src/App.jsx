@@ -18,7 +18,7 @@ function App() {
   // Check if patient data exists and has items
   if (patient && patient.length > 0) {
     return (
-      <div className="p-5 bg-[#F6F7F8] h-screen flex flex-col">
+      <div className="p-5 bg-[#F6F7F8] h-275 flex flex-col">
         <NavBar />
         <main className="flex flex-col lg:flex-row gap-5 mt-5 flex-1 lg:overflow-hidden">
           <PatientsList
