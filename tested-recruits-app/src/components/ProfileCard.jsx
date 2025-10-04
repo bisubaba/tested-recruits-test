@@ -51,8 +51,8 @@ export default function ProfileCard({ info }) {
           );
         })}
       </div>
-      <div className="flex justify-end mt-8">
-        <button className="w-42 h-10 bg-[#01F0D0] rounded-full opacity-100">
+      <div className="flex justify-center mt-8">
+        <button className="w-42 h-10 bg-[#01F0D0] rounded-full opacity-100 ">
           Show All Information
         </button>
       </div>

@@ -22,6 +22,7 @@ export const useAPI = () => {
           "Content-Type": "application/json",
         },
       });
+      console.log(response.data[0]);
       setData(response.data);
       return response.data;
     } catch (err) {

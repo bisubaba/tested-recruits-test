@@ -17,10 +17,9 @@ export default function PatientsList({
         {patients.map((patient, index) => {
           return (
             <div
-              className={`flex justify-between  items-center w-9/10  p-3 ${
+              className={`flex justify-between rounded-r-md items-center mr-5  p-3 ${
                 index == selectedIndex ? "active2" : ""
-              }`
-            }
+              }`}
               onClick={() => onPatientSelect(index)}
             >
               <div className="flex space-x-2 items-center">
